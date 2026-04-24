@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Million Dollar Homepage</title>
+
+  <!-- PIXEL FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    1,000,000 PIXELS • $1 PER PIXEL • OWN A PIECE OF INTERNET 
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="buy.html">BUY PIXELS</a>
+    <a href="faq.html">FAQ</a>
+    <a href="why.html">WHY BUY PIXELS?</a>
+    <a href="about.html">ABOUT ME</a>
+    <a href="contact.html">CONTACT</a>
+  </nav>
+
+  <!-- TITLE -->
+  <h1>The Wall of Millionaires</h1>
+  
+
+  <!-- GRID -->
+  <div class="grid-wrapper">
+    <div id="grid"></div>
+  </div>
+
+  <footer>
+    © 2026 MY HOMEPAGE
+  </footer>
+
+<script>
+  const grid = document.getElementById("grid");
+
+  // Pixel erstellen
+  for (let i = 0; i < 10000; i++) {
+    const pixel = document.createElement("div");
+    pixel.classList.add("pixel");
+    grid.appendChild(pixel);
+  }
+
+  // Werbung
+  const ads = [
+    {
+      start: 3000,
+      width: 10,
+      height: 5,
+      image: "vetter-logo.png",
+      link: "https://www.vetter.ch"
+    },
+    {
+      start: 4000,
+      width: 5,
+      height: 2,
+      image: "Model.png",
+      link: "https://www.modelgroup.com"
+    },
+    {
+      start: 9010,
+      width: 10,
+      height: 10,
+      image: "Lidl.png",
+      link: "https://www.lidl.de"
+    }
+  ];
+
+  ads.forEach(ad => {
+    const logo = document.createElement("a");
+
+    logo.href = ad.link;
+    logo.target = "_blank";
+    logo.className = "ad-logo";
+
+    const row = Math.floor(ad.start / 100);
+    const col = ad.start % 100;
+
+    const pixelSize = 11;
+
+    logo.style.left = `${col * pixelSize}px`;
+    logo.style.top = `${row * pixelSize}px`;
+    logo.style.width = `${ad.width * pixelSize - 1}px`;
+    logo.style.height = `${ad.height * pixelSize - 1}px`;
+
+    const img = document.createElement("img");
+    img.src = ad.image;
+
+    logo.appendChild(img);
+    grid.appendChild(logo);
+  });
+</script>
+
+</body>
+</html>

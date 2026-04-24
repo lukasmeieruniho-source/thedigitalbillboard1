@@ -1,0 +1,126 @@
+
+    body {
+      margin: 0;
+      font-family: 'Press Start 2P', cursive;
+      background: #f5f5f5;
+      color: #222;
+      text-align: center;
+    }
+
+    /* TOP BAR */
+    .topbar {
+      background: #ffcc00;
+      padding: 12px;
+      font-size: 10px;
+      position: relative;
+      z-index: 100;
+    }
+
+    /* NAVIGATION */
+    nav {
+      background: #fff;
+      padding: 12px;
+      border-bottom: 2px solid #ccc;
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      margin: 0 8px;
+      text-decoration: none;
+      color: black;
+      font-size: 10px;
+    }
+
+    nav a:hover {
+      color: orange;
+    }
+
+    /* TITLE */
+    h1 {
+      font-size: 28px;
+      color: #ff6600;
+      margin-top: 20px;
+      text-shadow: 3px 3px 0 #000;
+    }
+
+    p {
+      font-size: 10px;
+    }
+
+    /* GRID WRAPPER */
+    .grid-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 20px auto;
+    }
+
+    /* GRID */
+    #grid {
+      display: grid;
+      grid-template-columns: repeat(100, 10px);
+      grid-template-rows: repeat(100, 10px);
+      gap: 1px;
+
+      width: 1099px;
+      height: 1099px;
+
+      position: relative;
+      z-index: 1;
+    }
+
+    .pixel {
+      width: 10px;
+      height: 10px;
+      background: #ddd;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+
+    .pixel:hover {
+      background: orange;
+    }
+
+    /* ADS */
+    .ad-logo {
+      position: absolute;
+      z-index: 10;
+      display: block;
+      overflow: hidden;
+      background: white;
+      border: 1px solid black;
+      box-sizing: border-box;
+    }
+
+    .ad-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      image-rendering: pixelated;
+      opacity: 0.95;
+      filter: contrast(1.1) saturate(1.1);
+      pointer-events: none;
+    }
+
+    footer {
+      padding: 20px;
+      font-size: 9px;
+      color: #666;
+    }
+
+input, textarea {
+  width: 400px;
+  max-width: 90%;
+  padding: 10px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  border: 2px solid black;
+  display: block;
+  margin: 0.1px auto;   /* 👈 weniger Abstand */
+}
+
+textarea {
+  height: 200px;   /* 👈 höher */
+}
