@@ -6,20 +6,21 @@
 
   <!-- PIXEL FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
   <!-- TOP BAR -->
   <div class="topbar">
-    1,000,000 PIXELS • $1 PER PIXEL • OWN A PIECE OF INTERNET 
+    1,000,000 PIXELS • $1 PER PIXEL • OWN A PIECE OF INTERNET HISTORY
   </div>
 
   <!-- NAVIGATION -->
   <nav>
     <a href="index.html">HOME</a>
     <a href="buy.html">BUY PIXELS</a>
+    <a href="hall.html">HALL OF FAME</a>
     <a href="faq.html">FAQ</a>
     <a href="why.html">WHY BUY PIXELS?</a>
     <a href="about.html">ABOUT ME</a>
@@ -27,20 +28,105 @@
   </nav>
 
   <!-- TITLE -->
-  <h1>The Wall of Millionaires</h1>
-  
+  <h1>the digital billboard</h1>
 
   <!-- GRID -->
+<div class="main-area">
+
+  <!-- LEFT SIDEBAR -->
+  <div class="left-sidebar">
+
+    <div class="info-box">
+      <div class="info-title">RECENT PURCHASES</div>
+      <div class="info-content">
+        <div><span class="color-dot c1"></span>clippedbydean (12)</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="info-title">TOP OWNERS</div>
+      <div class="info-content">
+        <div class="stat-row"><span>clippedbydean</span><b>12px</b></div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="info-title">STATS</div>
+      <div class="info-content">
+        <div class="stat-row"><span>Total</span><b>1,000,000</b></div>
+        <div class="stat-row"><span>Sold</span><b>0</b></div>
+        <div class="stat-row"><span>Available</span><b>1,000,000</b></div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CENTER GRID -->
   <div class="grid-wrapper">
     <div id="grid"></div>
   </div>
 
-  <footer>
-    © 2026 MY HOMEPAGE
-  </footer>
+  <!-- RIGHT SIDEBAR -->
+  <div class="right-sidebar">
+
+    <div class="info-box">
+      <div class="info-title">BUY PIXELS</div>
+      <div class="info-content">
+        Choose your pixel and own it!
+        <a href="buy.html" class="info-btn">BUY NOW</a>
+      </div>
+    </div>
+
+    <div class="info-box green">
+      <div class="info-title">HALL OF FAME</div>
+      <div class="info-content">
+        Get your name on the wall!
+        <a href="hall.html" class="info-btn">CLAIM SPOT</a>
+      </div>
+    </div>
+
+<div class="right-sidebar">
+
+  <div class="info-box blue">
+    <div class="info-title">MINI GAME</div>
+    <div class="info-content">
+      Enjoy Life!
+     <button class="play-btn" onclick="toggleMiniGame()">PLAY</button>
+    </div>
+  </div>
+
+
+  <div id="coinGameBox" class="mini-game hidden">
+
+    <div class="close-btn" onclick="toggleMiniGame()">✖</div>
+
+    <h3>COIN STREAK</h3>
+    <p>7x richtig = WIN</p>
+
+    <div class="coin-area">
+      <div id="coin" class="coin">?</div>
+    </div>
+
+    <div id="coinResult">Choose side</div>
+
+    <button onclick="guessCoin('heads')">HEADS</button>
+    <button onclick="guessCoin('tails')">TAILS</button>
+
+    <p>Streak: <span id="coinStreak">0</span>/7</p>
+
+  </div>
+
+</div> <!-- right-sidebar -->
+</div> 
+
+  <!-- TOOLTIP -->
+  <div id="tooltip"></div>
 
 <script>
   const grid = document.getElementById("grid");
+  const tooltip = document.getElementById("tooltip");
 
   // Pixel erstellen
   for (let i = 0; i < 10000; i++) {
@@ -56,23 +142,37 @@
       width: 10,
       height: 5,
       image: "vetter-logo.png",
-      link: "https://www.vetter.ch"
+      link: "https://www.vetter.ch",
+      text: "Vetter verkauft dieses Feld"
     },
     {
       start: 4000,
-      width: 5,
-      height: 2,
+      width: 20,
+      height: 10,
       image: "Model.png",
-      link: "https://www.modelgroup.com"
+      link: "https://www.modelgroup.com",
+      text: "Kaufe neuwertige Schachteln"
     },
     {
       start: 9010,
       width: 10,
       height: 10,
       image: "Lidl.png",
-      link: "https://www.lidl.de"
+      link: "https://www.lidl.de",
+      text: "Lidl Angebot verfügbar"
     }
   ];
+
+  function showTooltip(e, text) {
+    tooltip.innerText = text;
+    tooltip.style.left = e.clientX + 12 + "px";
+    tooltip.style.top = e.clientY + 12 + "px";
+    tooltip.classList.add("show");
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove("show");
+  }
 
   ads.forEach(ad => {
     const logo = document.createElement("a");
@@ -83,7 +183,6 @@
 
     const row = Math.floor(ad.start / 100);
     const col = ad.start % 100;
-
     const pixelSize = 11;
 
     logo.style.left = `${col * pixelSize}px`;
@@ -93,11 +192,91 @@
 
     const img = document.createElement("img");
     img.src = ad.image;
-
     logo.appendChild(img);
+
+    logo.addEventListener("mousemove", (e) => {
+      showTooltip(e, ad.text || "Kein Text");
+    });
+
+    logo.addEventListener("mouseleave", hideTooltip);
+
+    // SALE BADGE
+    if (ad.forSale) {
+      const badge = document.createElement("a");
+      badge.className = "sale-badge";
+      badge.innerText = "SALE";
+      badge.href = `buy.html?tile=${ad.start}`;
+
+      badge.addEventListener("mousemove", (e) => {
+        showTooltip(e, ad.text || "Kein Text");
+      });
+
+      badge.addEventListener("mouseleave", hideTooltip);
+
+      badge.onclick = (e) => {
+        e.stopPropagation();
+      };
+
+      logo.appendChild(badge);
+    }
+
     grid.appendChild(logo);
   });
+
+let coinStreak = 0;
+let coinFlipping = false;
+
+function guessCoin(choice) {
+  if (coinFlipping) return;
+
+  coinFlipping = true;
+
+  const result = Math.random() < 0.5 ? "heads" : "tails";
+  const coin = document.getElementById("coin");
+  const coinResult = document.getElementById("coinResult");
+  const coinStreakText = document.getElementById("coinStreak");
+
+  coin.innerText = "?";
+  coinResult.innerText = "FLIPPING...";
+  coin.classList.remove("flip");
+
+  void coin.offsetWidth;
+
+  coin.classList.add("flip");
+
+  setTimeout(() => {
+    coin.innerText = result === "heads" ? "H" : "T";
+
+    if (choice === result) {
+      coinStreak++;
+      coinResult.innerText = "CORRECT!";
+    } else {
+      coinStreak = 0;
+      coinResult.innerText = "WRONG!";
+    }
+
+    if (coinStreak >= 7) {
+      coinResult.innerText = "🏆 YOU WIN!";
+      coinStreak = 0;
+    }
+
+    coinStreakText.innerText = coinStreak;
+    coinFlipping = false;
+  }, 900);
+}
+
+function toggleMiniGame() {
+  const gameBox = document.getElementById("coinGameBox");
+
+  gameBox.classList.toggle("hidden");
+}
 </script>
+</div>
+</div>
+
+  <footer>
+  the digital billboard 2026 Lukas Meier
+  </footer>
 
 </body>
 </html>

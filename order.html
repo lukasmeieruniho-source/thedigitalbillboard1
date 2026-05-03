@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Million Dollar Homepage</title>
+
+  <!-- PIXEL FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <style>
+.order-info,
+.price-info {
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+input,
+textarea {
+  width: 100%;
+  max-width: 430px;
+  box-sizing: border-box;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  line-height: 1.8;
+  padding: 10px;
+  border: 3px solid black;
+  margin-bottom: 8px;
+}
+
+textarea {
+  height: 180px;
+}
+
+.pixel-btn {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 11px;
+  line-height: 1.8;
+  padding: 14px 22px;
+  background: #ffcc00;
+  border: 4px solid black;
+  box-shadow: 4px 4px 0 black;
+  cursor: pointer;
+}
+
+.pixel-btn:hover {
+  background: #ff6600;
+  color: white;
+}
+
+    </style>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    1,000,000 PIXELS • $1 PER PIXEL • OWN A PIECE OF INTERNET HISTORY
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="buy.html">BUY PIXELS</a>
+    <a href="hall.html">HALL OF FAME</a>
+    <a href="faq.html">FAQ</a>
+    <a href="why.html">WHY BUY PIXELS?</a>
+    <a href="about.html">ABOUT ME</a>
+    <a href="contact.html">CONTACT</a>
+  </nav>
+
+  <h1>BUY PIXELS</h1>
+
+<section class="faq-box order-box">
+  <h3>YOUR DETAILS</h3>
+
+  <p class="order-info">
+    Fill out the form below. I will review your request and contact you within 24 hours.<br> <br>
+    All further steps — including your logo, placement, and payment — will be handled directly via email to ensure everything is perfect.
+  </p>
+ <br> <br>
+<form action="https://formspree.io/f/mbdqwayn" method="POST" enctype="multipart/form-data">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <input type="url" name="website" placeholder="Website / Social Media Link" required>
+  <input type="number" name="pixels" placeholder="How many pixels?" required>
+
+  <input type="text" name="website" placeholder="Your individual text" required>
+
+  <textarea name="message" placeholder="Your message / logo instructions"></textarea>
+
+  <p class="price-info">Price: $1 per pixel</p>
+
+  <button type="submit" class="pixel-btn">SEND REQUEST</button>
+</form>
+</section>
+</body>
+
+  <footer>
+  the digital billboard 2026 Lukas Meier
+  </footer>
+
+</html>
