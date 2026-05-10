@@ -745,3 +745,25 @@ margin: 0 auto;
   max-width: 600px;
   margin: 10px auto;
 }
+
+@media (max-width: 600px) {
+    
+  #billboard {
+    grid-template-columns: repeat(60, 4px);
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .grid {
+    transform: scale(0.45);
+    transform-origin: top left;
+  }
+
+
+.topbar {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+}
