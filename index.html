@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <title>the digital billboard</title>
 <meta name="description" content="A digital billboard created by Lukas Meier to finance his studies at HSG. Buy pixels, promote your brand, and support a student entrepreneur.">
-  <!-- PIXEL FONT -->
+
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="data:image/svg+xml,
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
   <circle cx='50' cy='50' r='50' fill='black'/>
   <text x='50%' y='58%' font-size='60' text-anchor='middle' fill='white' font-family='Press Start 2P'>
     B
@@ -18,12 +19,11 @@
 
 <body>
 
-  <!-- TOP BAR -->
   <div class="topbar">
-    1,000,000 PIXELS • $1 PER PIXEL • OWN A PIECE OF INTERNET HISTORY
+    1,000,000 PIXELS • $1 PER PIXEL • SUPPORT MY FUTURE
   </div>
 
-  <!-- NAVIGATION -->
+ 
   <nav>
     <a href="index.html">HOME</a>
     <a href="buy.html">BUY PIXELS</a>
@@ -34,13 +34,11 @@
     <a href="contact.html">CONTACT</a>
   </nav>
 
-  <!-- TITLE -->
   <h1>the digital billboard</h1>
 
-  <!-- GRID -->
+
 <div class="main-area">
 
-  <!-- LEFT SIDEBAR -->
   <div class="left-sidebar">
 
     <div class="info-box">
@@ -70,12 +68,12 @@
 
   </div>
 
-  <!-- CENTER GRID -->
+
   <div class="grid-wrapper">
     <div id="grid"></div>
   </div>
 
-  <!-- RIGHT SIDEBAR -->
+
   <div class="right-sidebar">
 
     <div class="info-box">
@@ -227,7 +225,7 @@ function guessCoin(choice) {
   coin.classList.add("flip");
 
   setTimeout(() => {
-    coin.innerText = result === "heads" ? "H" : "T";
+    coin.innerText = result === "heads"?"H" : "T";
 
     if (choice === result) {
       coinStreak++;
