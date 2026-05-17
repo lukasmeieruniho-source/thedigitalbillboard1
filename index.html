@@ -152,7 +152,34 @@
   function hideTooltip() {
     tooltip.classList.remove("show");
   }
-const ads = [];
+const ads = [
+{
+    start: 0,
+    width: 20,
+    height: 4,
+    image: "ZKBgross.png",
+    link: "https://www.zkb.ch/de/private.html",
+    text: "ZKB - Die Bank der Zukunft 800$",
+  },
+  {
+    start: 1000,
+    width: 10,
+    height: 10,
+    image: "ZKBklein.png",
+    link: "https://www.zkb.ch/de/private/konten-karten/pakete-erwachsene/pakete-vergleich.html",
+    text: "Unsere Bankpakete für Privatkunden 1000$",
+  },
+
+{
+  start: 2600,
+    width: 3,
+    height: 3,
+    image: "ZKBklein.png",
+    link: "https://www.zkb.ch/de/private/konten-karten/pakete-erwachsene/pakete-vergleich.html",
+    text: "Unsere Bankpakete für Privatkunden 90$",
+  }
+
+];
 
   ads.forEach(ad => {
     const logo = document.createElement("a");

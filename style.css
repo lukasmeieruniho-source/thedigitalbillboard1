@@ -84,28 +84,34 @@
     }
 
     /* ADS */
-    .ad-logo {
-      position: absolute;
-      z-index: 10;
-      display: block;
-      overflow: hidden;
-      background: white;
-      border: 1px solid black;
-      box-sizing: border-box;
-      position: absolute;
-  cursor: default;
-    }
+.ad-logo {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    .ad-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      image-rendering: pixelated;
-      opacity: 0.95;
-      filter: contrast(1.1) saturate(1.1);
-      pointer-events: none;
-    }
+  overflow: hidden;
+  background: white;
+  border: 1px solid black;
+  box-sizing: border-box;
+  cursor: default;
+}
+
+.ad-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+
+  padding: 2px;
+  box-sizing: border-box;
+
+  image-rendering: pixelated;
+  opacity: 0.95;
+  filter: contrast(1.1) saturate(1.1);
+  pointer-events: none;
+}
 
     footer {
       padding: 20px;
@@ -183,8 +189,7 @@ textarea {
 
   z-index: 9999;
 
-height: 7px;
-  line-height: 1.6;
+  height: 25px;
   text-align: center;
 }
 
