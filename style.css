@@ -878,7 +878,6 @@ body {
   nav a {
     font-size: 8px;
   }
-}
 
     .play-btn {
     width: 100%;
@@ -900,4 +899,5 @@ body {
   cursor: pointer;
   box-shadow: 4px 4px 0 black;
   transition: all 0.15s ease;
+}
 }
